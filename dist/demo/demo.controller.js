@@ -1,0 +1,129 @@
+"use strict";
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.DemoController = void 0;
+const common_1 = require("@nestjs/common");
+const demo_service_1 = require("./demo.service");
+const create_demo_dto_1 = require("./dto/create-demo.dto");
+let DemoController = class DemoController {
+    constructor(demoService) {
+        this.demoService = demoService;
+    }
+    create(createDemoDto) {
+        return this.demoService.create(createDemoDto);
+    }
+    findAll() {
+        return this.demoService.findAll();
+    }
+    withoutEgarGetOder() {
+        return this.demoService.withoutEgarGetOder();
+    }
+    cascadeDelete() {
+        return this.demoService.cascadeDelete();
+    }
+    getDistict() {
+        return this.demoService.getDistict();
+    }
+    getSelect() {
+        return this.demoService.getSelect();
+    }
+    getSum() {
+        return this.demoService.getSum();
+    }
+    getCount() {
+        return this.demoService.getCount();
+    }
+    getProduct() {
+        return this.demoService.getProductnA();
+    }
+    getProducts() {
+        return this.demoService.getProduct();
+    }
+    saveDate() {
+        return this.demoService.saveDate();
+    }
+};
+__decorate([
+    common_1.Post(),
+    __param(0, common_1.Body()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [create_demo_dto_1.CreateDemoDto]),
+    __metadata("design:returntype", void 0)
+], DemoController.prototype, "create", null);
+__decorate([
+    common_1.Get(),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], DemoController.prototype, "findAll", null);
+__decorate([
+    common_1.Get('withoutEgarGetOder'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], DemoController.prototype, "withoutEgarGetOder", null);
+__decorate([
+    common_1.Post('cascadeDelete'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], DemoController.prototype, "cascadeDelete", null);
+__decorate([
+    common_1.Get('getDistict'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], DemoController.prototype, "getDistict", null);
+__decorate([
+    common_1.Get('select'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], DemoController.prototype, "getSelect", null);
+__decorate([
+    common_1.Get('getSum'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], DemoController.prototype, "getSum", null);
+__decorate([
+    common_1.Get('getCount'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], DemoController.prototype, "getCount", null);
+__decorate([
+    common_1.Get('getProductCoalesce'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], DemoController.prototype, "getProduct", null);
+__decorate([
+    common_1.Get('getProduct'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], DemoController.prototype, "getProducts", null);
+__decorate([
+    common_1.Post('dateInsert'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], DemoController.prototype, "saveDate", null);
+DemoController = __decorate([
+    common_1.Controller('demo'),
+    __metadata("design:paramtypes", [demo_service_1.DemoService])
+], DemoController);
+exports.DemoController = DemoController;
+//# sourceMappingURL=demo.controller.js.map
