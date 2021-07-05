@@ -156,9 +156,6 @@ export class DemoService {
   }
   async dateOperations() {}
 }
-//////////////////////////////
-//////////////////////////////
-//////////////////////////NUMERIC
 /////////////Lesthan(),MoreThan(),LessThanOrEqual(),MoreThanOrEqual(),Equal(),
   async getLessThan(): Promise<{}> {
     try {
@@ -169,10 +166,42 @@ export class DemoService {
       // .where('mkt.modal_min_price > 100')
       // .getRawMany();
       ////OR
+      // const result = await this.marketRepository.find({
+      //   select: ['market', 'item'],
+      //   where: { modal_min_price: MoreThan(100) },
+      // });
+      /////////////////////////////Not MoreThan() ,LessThan(),Equal()
       const result = await this.marketRepository.find({
-        select: ['market', 'item'],
-        where: { modal_min_price: MoreThan(100) },
+        where: {
+          // modal_min_price: Not(MoreThan(100)),
+          // modal_min_price: Not(LessThan(100)),
+          //modal_min_price: Not(Equal(100)),
+        },
       });
+      return result;
+    } catch (error) {}
+  }
+  ////////////////////Dates functions
+  async datesFunctions() {
+    try {
+      // const result = await this.marketRepository.find({
+      //   where: {
+      //date: LessThan('2012-03-14'),
+      //date: LessThanOrEqual('2012-03-14'),
+      //date: MoreThan('2012-03-14'),
+      //date: MoreThanOrEqual('2012-03-14'),
+      //date: Not(Equal('2012-03-14')),
+      // date: Equal('2012-03-14'),
+      // },
+      // });
+
+      /////OR
+
+      const result = await this.marketRepository
+        .createQueryBuilder('mkt')
+        .select(['mkt.market', 'mkt.item', 'mkt.date'])
+        .where(`mkt.date > '2012-03-14' `)
+        .getRawMany();
       return result;
     } catch (error) {}
   }
