@@ -156,3 +156,23 @@ export class DemoService {
   }
   async dateOperations() {}
 }
+//////////////////////////////
+//////////////////////////////
+//////////////////////////NUMERIC
+/////////////Lesthan(),MoreThan(),LessThanOrEqual(),MoreThanOrEqual(),Equal(),
+  async getLessThan(): Promise<{}> {
+    try {
+      // const result = await this.marketRepository
+      // .createQueryBuilder('mkt')
+      // //.getMany();
+      // .select(['mkt.market', 'mkt.item'])
+      // .where('mkt.modal_min_price > 100')
+      // .getRawMany();
+      ////OR
+      const result = await this.marketRepository.find({
+        select: ['market', 'item'],
+        where: { modal_min_price: MoreThan(100) },
+      });
+      return result;
+    } catch (error) {}
+  }
